@@ -1,0 +1,198 @@
+from tkinter import *
+from tkinter import messagebox
+
+window = Tk()
+
+window.title("Tic Tac Toe Game")
+window.minsize(width=500, height=500)
+window.config(padx=100, pady=100)
+
+clicked=True
+count=0
+winner=False
+                                     # function for button
+# to reset the game
+def reset():
+    global clicked, count
+    clicked=True
+    count=0
+    btn1.config(text="",bg="SystemButtonFace")
+    btn2.config(text="",bg="SystemButtonFace")
+    btn3.config(text="",bg="SystemButtonFace")
+    btn4.config(text="",bg="SystemButtonFace")
+    btn5.config(text="",bg="SystemButtonFace")
+    btn6.config(text="",bg="SystemButtonFace")
+    btn7.config(text="",bg="SystemButtonFace")
+    btn8.config(text="",bg="SystemButtonFace")
+    btn9.config(text="",bg="SystemButtonFace")
+# to check who clicked the button x or o
+def button_clicked(b):
+    global clicked,count
+    if b['text']=="" and clicked==True:
+       b.config(text="x")
+       clicked=False
+       count+=1
+       check_winner()
+    elif b['text']=="" and clicked==False:
+        b.config(text="O")
+        clicked=True
+        count+=1
+        check_winner()
+    else:
+        messagebox.showerror(message="Box already filled!Pick some other box.")
+
+# to disable all buttons after someone win the game
+def disable_all_buttons():
+    btn1.config(state=DISABLED)
+    btn2.config(state=DISABLED)
+    btn3.config(state=DISABLED)
+    btn4.config(state=DISABLED)
+    btn5.config(state=DISABLED)
+    btn6.config(state=DISABLED)
+    btn7.config(state=DISABLED)
+    btn8.config(state=DISABLED)
+    btn9.config(state=DISABLED)
+
+# to check the winner
+def check_winner():
+    global winner
+
+    if btn1["text"] == 'x' and btn2["text"] == 'x' and btn3["text"] == 'x':
+
+        btn1.config(bg="red")
+        btn2.config(bg="red")
+        btn3.config(bg="red")
+        winner=True
+        messagebox.showerror(message="Congratulations!player-X wins!")
+        disable_all_buttons()
+
+    elif btn1["text"] == 'x' and btn4["text"] == 'x' and btn7["text"] == 'x':
+
+        btn1.config(bg="red")
+        btn4.config(bg="red")
+        btn7.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-X wins!")
+        disable_all_buttons()
+
+    elif btn1["text"] == 'x' and btn5["text"] == 'x' and btn9["text"] == 'x':
+
+        btn1.config(bg="red")
+        btn5.config(bg="red")
+        btn9.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-X wins!")
+        disable_all_buttons()
+    elif btn2["text"] == 'x' and btn5["text"] == 'x' and btn8["text"] == 'x':
+
+        btn2.config(bg="red")
+        btn5.config(bg="red")
+        btn8.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-X wins!")
+        disable_all_buttons()
+    elif btn3["text"] == 'x' and btn6["text"]== 'x' and btn9["text"] == 'x':
+
+        btn3.config(bg="red")
+        btn6.config(bg="red")
+        btn9.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-X wins!")
+        disable_all_buttons()
+    elif btn4["text"] == 'x' and btn5["text"] == 'x' and btn6["text"] == 'x':
+
+        btn4.config(bg="red")
+        btn5.config(bg="red")
+        btn6.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-X wins!")
+        disable_all_buttons()
+    elif btn7["text"] == 'x' and btn8["text"] == 'x' and btn9["text"] == 'x':
+
+        btn7.config(bg="red")
+        btn8.config(bg="red")
+        btn9.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-X wins!")
+        disable_all_buttons()
+
+    elif btn1["text"] == "O" and btn2["text"] == "O" and btn3["text"] == "O":
+
+        btn1.config(bg="red")
+        btn2.config(bg="red")
+        btn3.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-O wins!")
+        disable_all_buttons()
+    elif btn1["text"] == "O" and btn4["text"] == "O" and btn7["text"] == "O":
+
+        btn1.config(bg="red")
+        btn4.config(bg="red")
+        btn7.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-O wins!")
+        disable_all_buttons()
+    elif btn1["text"] == "O" and btn5["text"] == "O" and btn9["text"] == "O":
+
+        btn1.config(bg="red")
+        btn5.config(bg="red")
+        btn9.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-O wins!")
+        disable_all_buttons()
+    elif btn2["text"] == "O" and btn5["text"] == "O" and btn8["text"] == "O":
+
+        btn2.config(bg="red")
+        btn5.config(bg="red")
+        btn8.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-O wins!")
+        disable_all_buttons()
+    elif btn3["text"] == "O" and btn6["text"] == "O" and btn9["text"] =="O":
+
+        btn3.config(bg="red")
+        btn6.config(bg="red")
+        btn9.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-O wins!")
+        disable_all_buttons()
+    elif btn4["text"] == "O" and btn5["text"] == "O" and btn6["text"] == "O":
+
+        btn4.config(bg="red")
+        btn5.config(bg="red")
+        btn6.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-O wins!")
+        disable_all_buttons()
+    elif btn7["text"] == "O" and btn8["text"] == "O" and btn9["text"] =="O":
+
+        btn7.config(bg="red")
+        btn8.config(bg="red")
+        btn9.config(bg="red")
+        winner = True
+        messagebox.showerror(message="Congratulations!player-O wins!")
+        disable_all_buttons()
+
+# button
+btn1=Button(window,text="",width=12,height=6,command=lambda:button_clicked(btn1))
+btn1.grid(column=0,row=0)
+btn2=Button(window,text="",width=12,height=6,command=lambda:button_clicked(btn2))
+btn2.grid(column=0,row=1)
+btn3=Button(window,text="",width=12,height=6,command=lambda:button_clicked(btn3))
+btn3.grid(column=0,row=2)
+btn4=Button(window,text="",width=12,height=6,command=lambda:button_clicked(btn4))
+btn4.grid(column=1,row=0)
+btn5=Button(window,text="",width=12,height=6,command=lambda:button_clicked(btn5))
+btn5.grid(column=1,row=1)
+btn6=Button(window,text="",width=12,height=6,command=lambda:button_clicked(btn6))
+btn6.grid(column=1,row=2)
+btn7=Button(window,text="",width=12,height=6,command=lambda:button_clicked(btn7))
+btn7.grid(column=2,row=0)
+btn8=Button(window,text="",width=12,height=6,command=lambda:button_clicked(btn8))
+btn8.grid(column=2,row=1)
+btn9=Button(window,text="",width=12,height=6,command=lambda:button_clicked(btn9))
+btn9.grid(column=2,row=2)
+reset_button=Button(window,text='Reset the game',width=12,height=3,command=reset)
+reset_button.grid(column=1,row=3)
+
+window.mainloop()
